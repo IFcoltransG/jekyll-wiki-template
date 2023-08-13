@@ -7,6 +7,9 @@ exclude:             ['_includes/notes_graph.json']
 baseurl:             'jekyll-wiki'
 # You may also need to set the URL depending on your username
 url:                 'https://ifcoltransg.github.io'
+# And the edit base url if you want people to edit pages
+edit_base: "https://github.com/ifcoltransg/jekyll-wiki/edit/main"
+
 
 # If you are using a host that cannot resolve URLs that do
 # not end with .html (such as Neocities), set this to 'true'.
