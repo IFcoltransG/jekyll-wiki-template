@@ -18,30 +18,23 @@ def check_links(doc)
   style_nonexistent_links = !!doc.site.config["style_nonexistent_links"]
 
   if style_nonexistent_links
-    print("[[[")
-    print(doc.methods - Object.methods)
-    print("]]]")
     parsed_doc = Nokogiri::HTML(doc.output)
     # Get the output directory path
     output_dir = doc.site.config['destination']
     parsed_doc.css("a:not(.nonexistent-link)").each do |link|
       href = link['href']
       if href.start_with?('/') # Handle internal links
-        puts("Internal link ", href)
         # Construct the file path based on the full URL
         file_path = File.join(output_dir, href)
         # if File.extname(file_path).empty?
         #   file_path += ".html"
         # end
-        puts("PATH")
-        puts(file_path)
         # Check if the file exists
         if File.exist?(file_path) || File.exist?(file_path + ".html") || File.exist?(file_path + "/index.html")
           # Link points to a real page
           link['class'] = (link['class'] || '') + ' internal-link'
         else
           # Link points to a nonexistent page
-          puts("nonexistent: ", href)
           link['class'] = (link['class'] || '') + ' nonexistent-link'
           link['aria-label'] = (link['aria-label'] || '') + ' (Create new page)'
         end
