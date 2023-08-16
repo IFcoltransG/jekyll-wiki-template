@@ -1,0 +1,40 @@
+<script>
+{% include simple-jekyll-search.js %}
+</script>
+<script>
+  function count(haystack, needle) {
+    return matchString(haystack, needle).length;
+  };
+
+  function regExpEscape(literal_string) {
+    return RegExp(literal_string.replace(/[-[\]{}()*+!<=:?.\/\\^$|#\s,]/g, '\\$&'), "g");
+  }
+
+  function matchString(haystack, needle) {
+    return haystack.match(regExpEscape(needle)) || []
+  }
+
+
+  function score(page) {
+    let needle = searchInput.value.toLowerCase().trim();
+    let titleHaystack = page.title.toLowerCase().trim();
+    let contentHaystack = page.content.toLowerCase().trim();
+    let startBonus = titleHaystack.startsWith(needle) ? 1000 : 0;
+    return count(titleHaystack, needle) * 100 + count(contentHaystack, needle) + startBonus;
+  }
+
+  var searchInput = document.getElementById('search-input');
+  var sjs = SimpleJekyllSearch({
+      searchInput: searchInput,
+      resultsContainer: document.getElementById('results-container'),
+      json: '{{ site.baseurl }}/search.json',
+      searchResultTemplate: `
+        <div class="search-result-box">
+        <a href="{{ site.baseurl }}{url}">{title}</a> <br>
+        <div style="font-size: 0.9em">{truncated}</div>
+        </div>
+      `,
+      sortMiddleware: (a,b) => {return score(b) - score(a) },
+      limit: 100,
+    })
+</script>

@@ -1,11 +1,10 @@
 ---
-layout: page
-title: Main Page
 id: main-page
+title: Main Page
 permalink: /
+tags: ['Special']
+no-backlinks: true
 ---
-
-# Main Page
 
 This is the main page of wiki. It has an [example page](/_wiki/example.md), a [nonexistent page](/_wiki/nonexistent.md) an [external url](https://example.com).
 
