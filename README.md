@@ -16,7 +16,7 @@ Nope, this isn't a wiki about Jekyll -- it's a repo using Jekyll to generate a w
 You may choose to enable a plugin that colours links to nonexistent files red, in `_config.yml`, but take heed that the plugin may not be particularly stable.
 
 ## Demo
-You can see a [demo of the site here](https://ifcoltransg.github.io/jekyll-wiki/).
+You can see a [demo of the site here](https://ifcoltransg.github.io/jekyll-wiki-template/).
 
 ## Advice
 Make sure filenames are in snake-case and have no other punctuation. For links, use the format `[link text](/_wiki/filename.md)` including the leading slash, to ensure links work on both GitHub's file previewer and the static site itself.
