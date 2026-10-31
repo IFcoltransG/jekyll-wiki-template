@@ -1,3 +1,5 @@
+# [MIGRATED TO CODEBERG 2026-10-31](https://codeberg.org/IFcoltransG/jekyll-wiki-template)
+
 # Jekyll Wiki
 Nope, this isn't a wiki about Jekyll -- it's a repo using Jekyll to generate a wiki (based on the Digital Garden Jekyll Template). To fork your own wiki from this example, change the `baseurl` and `url` to your own hosting solution in `_config.yml`, and change the `edit_base_url` there to your version control. Then fill out the `/_wiki/` folder with your words.
 
